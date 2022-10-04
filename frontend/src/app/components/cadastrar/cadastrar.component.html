@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    CADASTRAR PRODUTO
+</mat-toolbar>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label>Nome do produto</mat-label>
+        <input matInput maxlength="50" [(ngModel)]="produto.nome" type="text" name="name" placeholder="Victor hugo Carvalho Alves" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Quantidade</mat-label>
+        <input matInput [(ngModel)]="produto.quantidade" type="number" name="quantidade" placeholder="1" formControlName="quantidade">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Preço</mat-label>
+        <input matInput [(ngModel)]="produto.preco" type="number" name="preco" placeholder="100,50" formControlName="preco">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Imagem</mat-label>
+        <input matInput type="textarea" [(ngModel)]="produto.imagem" name="imagem" formControlName="imagem">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput [(ngModel)]="produto.descricao" placeholder="Este produto tem a função de..." name="descricao" formControlName="descricao"></textarea>
+    </mat-form-field>
+
+    <div class="button-row">
+        <button type="button" mat-raised-button color="secundary" (click)="cancel()">
+            Cancelar
+        </button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid">
+            Salvar
+        </button>
+    </div>
+</form>

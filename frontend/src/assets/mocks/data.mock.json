@@ -1,0 +1,140 @@
+[
+    {
+        "nome": "shampoo Kérastase Curl Manifesto 250ml",
+        "quantidade": 8,
+        "validade": "09/09/2023",
+        "preco": 16,
+        "imagem": "https://http2.mlstatic.com/D_NQ_NP_646544-MLB50466180553_062022-O.webp",
+        "descricao": "Shampoo para cabelos ondulados, cacheados e crespos. Limpa suavemente, sem remover a hidratação natural.",
+        "lancamento": "",
+        "compras": [
+            {
+                "nome": "Victor Hugo Carvalho Alves",
+                "quantidade": 1,
+                "data": "08/10/2022",
+                "valor": 16
+            },
+            {
+                "nome": "Priscila de Almeida Nobrega",
+                "quantidade": 1,
+                "data": "10/10/2022",
+                "valor": 16
+            }
+        ]
+    },
+    {
+        "nome": "Neosaldina",
+        "quantidade": 100,
+        "validade": "09/09/2022",
+        "preco": 4,
+        "imagem": "https://www.drogariaminasbrasil.com.br/media/product/dbd/neosaldina-c-04-drageas-ed3.jpg",
+        "descricao": "Neosaldina é um medicamento com atividade analgésica (diminui a dor) e antiespasmódica (diminui contração involuntária) indicado para o tratamento de diversos tipos de dor de cabeça, incluindo enxaquecas ou para o tratamento de cólicas.",
+        "lancamento": "",
+        "compras": [
+            {
+                "nome": "Matheus Carvalho Alves",
+                "quantidade": 2,
+                "data": "08/10/2022",
+                "valor": 4
+            },
+            {
+                "nome": "Denilson Oliveira",
+                "quantidade": 3,
+                "data": "10/10/2022",
+                "valor": 4
+            }
+        ]
+    },
+    {
+        "nome": "Fralda PAMPERS CONFORT SEC BAG GIGA M 80 unidades",
+        "quantidade": 15,
+        "validade": "09/09/2025",
+        "preco": 80,
+        "imagem": "https://m.media-amazon.com/images/I/61uElspPPTL._AC_SL1000_.jpg",
+        "descricao": "Experimente a NOVA Pampers confort sec com canais de ar! Que permitem que o ar circule livremente dentro da fralda, para o bumbum ficar menos abafado, e a pele arejada e sequinha durante a noite - Canais de Ar: Permitem que o ar circule livremente dentro da fralda, para o bumbum ficar menos abafado, e a pele arejada e sequinha durante a noite - Gel Mágico que absorve e retém a umidade no interior da fralda para noites mais sequinhas. Benefícios - Camada ultra absorvente:absorve rapidamente a umidade mantendo a pele do bebê sequinha. - Barreiras Anti Vazamento: se adaptam suavemente ao redor das pernas do seu bebê. - Ajuste cômodo e flexível para dar uma proteção anti vazamentos todas as noites. - Loção hipoalergênica: ajuda a prevenir irritaçãoes. Modo de uso Coloque o bebê sobre a fralda, desgrude as fitas e puxe-as, grude as fitas sobre a faixa decorada.",
+        "lancamento": "",
+        "compras": [
+            {
+                "nome": "Victor Hugo Carvalho Alves",
+                "quantidade": 2,
+                "data": "08/10/2022",
+                "valor": 60
+            },
+            {
+                "nome": "Priscila de Almeida Nobrega",
+                "quantidade": 4,
+                "data": "10/10/2022",
+                "valor": 60
+            }
+        ]
+    },
+    {
+        "nome": "Multi A-Z Mix de Vitaminas e Minerais Sundown 120 cápsulas",
+        "quantidade": 10,
+        "validade": "09/11/2022",
+        "preco": 34,
+        "imagem": "https://http2.mlstatic.com/D_NQ_NP_646544-MLB50466180553_062022-O.webp",
+        "lancamento": "",
+        "descricao": "O Multi AZ contém um mix de 13 vitaminas e 13 minerais a fim de complementar as necessidades diárias do organismo de micro e macronutrientes, vitais para saúde do corpo, quando a alimentação não consegue atingir suas necessidades nutricionais diárias. Benefícios Mix de vitaminas e minerais para complementar as necessidades diárias do organismo; Contém vitaminas e minerais importantes para o fortalecimento do sistema imunológico, como a vitamina C e o Zinco. MODO DE USAR: 1 comprimido ao dia, preferencialmente durante a refeição ou conforme a orientação de médico ou nutricionista. CONSUMIR ESTE PRODUTO CONFORME A RECOMENDAÇÃO DE INGESTÃO DIÁRIA CONSTANTE NA EMBALAGEM. GESTANTES, NUTRIZES E CRIANÇAS DE ATÉ 3 (TRÊS) ANOS SOMENTE DEVEM CONSUMIR ESTE PRODUTO SOB ORIENTAÇÃO DE NUTRICIONISTA OU MÉDICO.",
+        "compras": [
+            {
+                "nome": "Victor Hugo Carvalho Alves",
+                "quantidade": 1,
+                "data": "08/10/2022",
+                "valor": 34
+            },
+            {
+                "nome": "Priscila de Almeida Nobrega",
+                "quantidade": 1,
+                "data": "10/10/2022",
+                "valor": 34
+            }
+        ]
+    },
+    {
+        "nome": "Ciclo 21(levonorgestrel 0,15mg+etinilestradiol 0,03mg) C/21Comp.",
+        "quantidade": 18,
+        "validade": "09/09/2024",
+        "preco": 7,
+        "imagem": "https://www.galaxcommerce.com.br/sistema/upload/1587/produtos/ciclo-21-c-21-cpm._2020-07-08_13-05-03_0.jpg",
+        "descricao": "Ciclo 21 é indicado na prevenção da gravidez e para o controle de irregularidades menstruais. Embora os contraceptivos orais (anticoncepcionais) sejam altamente eficazes, há casos de gravidez em mulheres que os utilizam.",
+        "lancamento": "",
+        "compras": [
+            {
+                "nome": "Victor Hugo Carvalho Alves",
+                "quantidade": 1,
+                "data": "08/10/2022",
+                "valor": 7
+            },
+            {
+                "nome": "Priscila de Almeida Nobrega",
+                "quantidade": 1,
+                "data": "10/10/2022",
+                "valor": 7
+            }
+        ]
+    },
+    {
+        "nome": "Ciclo 21(levonorgestrel 0,15mg+etinilestradiol 0,03mg) C/21Comp.",
+        "quantidade": 50,
+        "validade": "09/09/2024",
+        "preco": 5,
+        "imagem": "https://drogariasp.vteximg.com.br/arquivos/ids/550076-500-500/18368---lacto-purga-5mg-Neo-Quimica-6-comprimidos-1.jpg?v=637813223124630000",
+        "descricao": "Lacto Purga é um laxante, com tempo de ação previsível que age entre 6h -12h, indicado para o alívio da prisão de ventre e no preparo para exames diagnósticos. Uso Adulto e pediátrico acima de 4 anos.",
+        "lancamento": "",
+        "compras": [
+            {
+                "nome": "Victor Hugo Carvalho Alves",
+                "quantidade": 1,
+                "data": "08/10/2022",
+                "valor": 5
+            },
+            {
+                "nome": "Priscila de Almeida Nobrega",
+                "quantidade": 1,
+                "data": "10/10/2022",
+                "valor": 5
+            }
+        ]
+    }
+]
