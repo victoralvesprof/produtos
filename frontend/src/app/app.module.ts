@@ -7,12 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastrarModule } from './components/cadastrar/cadastrar.module';
 import { ConsultarComponent } from './components/consultar/consultar.component';
 import { ConsultarModule } from './components/consultar/consultar.module';
-import { FiadoComponent } from './components/fiado/fiado.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FiadoComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
