@@ -115,14 +115,14 @@ export class CadastrarComponent implements OnInit {
   }
 
   constructorNewProduct(): Produto {
-    const copy: Produto = JSON.parse(JSON.stringify(this.produto));
+    const copy: Produto = {...this.produto};
     
     copy.nome = this.form.value.name as string;
     copy.quantidade = Number(this.form.value.quantidade);
     copy.validade = new Date(this.form.value.validade as string);
     copy.preco = Number(this.form.value.preco);
-    copy.imagem = this.form.value.imagem as string;
-    copy.descricao = this.form.value.descricao as string;
+    copy.imagem = this.form.value.imagem! as string;
+    copy.descricao = this.form.value.descricao! as string;
     copy.compras = [];
 
     return copy;
