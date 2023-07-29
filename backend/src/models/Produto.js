@@ -6,9 +6,9 @@ const produtoSchema = new mongoose.Schema([
     quantidade: {type: Number, required: true},
     validade: {type: Date, required: true},
     preco: {type: Number, required: true},
-    imagem: {type: String},
-    descricao: {type: String},
-    lancamento: {type: Date, required: true},
+    imagem: {type: String, required: false},
+    descricao: {type: String, required: false},
+    lancamento: {type: Date, required: false},
     compras: {type: [
         {
             nome: {type: String, required: true},
@@ -16,7 +16,7 @@ const produtoSchema = new mongoose.Schema([
             data: {type: Date, required: true},
             valor: {type: Number, required: true}
         }
-    ]},
+    ], required: false},
   }]
 );
 

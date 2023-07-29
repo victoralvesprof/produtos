@@ -2,59 +2,85 @@ import produtos from "../models/Produto.js";
 
 class ProdutoDao {
 
-    static listarTodosProdutos = (req, res) => {
-        produtos.find((err, produtos) => {
-            res.status(200).json(produtos)
-        })
+    static listarTodosProdutos = async (req, res) => {
+        try {
+            await produtos.find()
+            .then((produtosResultado) => res.status(200).json(produtosResultado))
+            .catch((err) => res.status(500).json(err))
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
 
-    static listarUnicoProduto = (req, res) => {
+    static listarUnicoProduto = async (req, res) => {
         const id = req.params.id;
 
-        produtos.findById(id)
-            .exec((err, produtos) => {
-                if (err) {
-                    res.status(400).send({ message: `${err.message} - ID do produto não localizado.` })
-                } else {
-                    res.status(200).send(produtos);
-                }
+        try {
+            await produtos.findById(id)
+            .then((produtosResultado) => res.status(200).json(produtosResultado))
+            .catch((err) => res.status(500).json(err))
+        } catch (err) {
+            res.status(500).json(err);
+            res.status(400).json(err);
+        }
+    }
+
+    static addProduto = async (req, res) => {
+        try{
+            const produto = new produtos(req.body);
+    
+            await produto.save()
+            .then((savedContact) => {
+                console.log("retornou salvo: ", savedContact);
+                res.status(201).json({ msg: 'Produto atualizado com sucesso' });
             })
+            .catch((error) => {
+                console.log("erro ao salvar: ", error);
+                res.status(500).json({ msg: error.message });
+            })
+        } catch(error) {
+            console.log("erro catch de fora salvar: ", error);
+            res.status(500).json({ msg: error.message });
+        }
     }
 
-    static addProduto = (req, res) => {
-        let produto = new produtos(req.body);
-
-        produto.save((err) => {
-            if (err) {
-                res.status(500).send({ message: `${err.message} - Falha ao cadastrar produto.` })
-            } else {
-                res.status(201).send(produto.toJSON())
-            }
-        })
+    static atualizarProduto = async (req, res) => {
+        try{
+            const id = req.params.id;
+            const updateProduct = req.body;
+    
+            await produtos.findOneAndUpdate({_id: id}, { $set: updateProduct }, {new: true})
+            .then((updateContact) => {
+                console.log("retornou update: ", updateContact);
+                res.status(200).json({ msg: 'Produto atualizado com sucesso' });
+            })
+            .catch((error) => {
+                console.log("error update: ", error);
+                res.status(500).json({ msg: error.message });
+            })
+        } catch(error) {
+            console.log("error catch de fora update: ", error);
+            res.status(500).json({ msg: error.message });
+        }
     }
 
-    static atualizarProduto = (req, res) => {
+    static deletarProduto = async (req, res) => {
         const id = req.params.id;
 
-        produtos.findByIdAndUpdate(id, { $set: req.body }, (err) => {
-            if (!err) {
-                res.status(200).send({ message: 'Produto atualizado com sucesso' })
-            } else {
-                res.status(500).send({ message: err.message })
-            }
-        })
-    }
-
-    static deletarProduto = (req, res) => {
-        const id = req.params.id;
-
-        produtos.findByIdAndDelete(id, (err) => {
-            if (!err) {
-                res.status(200).send({ message: 'Produto removido com sucesso' })
-            } else {
-                res.status(500).send({ message: err.message })
-            }
-        })
+        try {
+            await produtos.findByIdAndDelete(id)
+            .then((deleteProduct) => {
+                console.log(deleteProduct);
+                res.status(200).json({ msg: 'Produto removido com sucesso' });
+            })
+            .catch((error) => {
+                console.log(error);
+                res.status(500).json({ message: error.message });
+            })
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ message: error.message });
+        }
     }
 }
 
