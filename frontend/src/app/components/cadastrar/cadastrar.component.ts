@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,42 +12,8 @@ import { ProdutoService } from '../shared/services/produto.service';
   styleUrls: ['./cadastrar.component.scss']
 })
 export class CadastrarComponent implements OnInit {
-  isEditar: boolean = false;
-  produto: Produto = {
-    nome: "",
-    quantidade: 0,
-    validade: new Date(),
-    preco: 0,
-    imagem: "",
-    descricao: "",
-    lancamento: new Date(0),
-    compras: []
-  };
-
-  form = this.fb.group({
-    name: ['', {
-      Validators: [
-        Validators.required
-      ]
-    }],
-    quantidade: ['', {
-      Validators: [
-        Validators.required
-      ]
-    }],
-    validade: [new Date().toISOString(), {
-      Validators: [
-        Validators.required
-      ]
-    }],
-    preco: ['', {
-      Validators: [
-        Validators.required
-      ]
-    }],
-    imagem: ['', {}],
-    descricao: ['', {}]
-  });  
+  form!: FormGroup;
+  productID!: string;
   
   constructor(
     private fb: FormBuilder,
@@ -57,38 +23,36 @@ export class CadastrarComponent implements OnInit {
     private produtoService: ProdutoService) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get("id");
-    if(id){
-      this.isEditar = true;
-      this.produtoService.getOnlyProduct(id).subscribe((res: any) => {
-        console.log("RESPOSTA edicao produto: ", res);
-        this.produto = res;
+    this.productID = this.activatedRoute.snapshot.paramMap.get("id")!;
+    
+    if(this.productID){
+      this.produtoService.getOnlyProduct(this.productID).subscribe((produto: Produto) => {
+        this.initializeForm(produto);
       });
+    } else {
+      this.initializeForm();
     }
   }
 
-  get name() {
-    return this.form.controls['name'];
-  }
-
-  get quantidade() {
-    return this.form.controls['quantidade'];
-  }
-
-  get validade() {
-    return this.form.controls['validade'];
-  }
-
-  get preco() {
-    return this.form.controls['preco'];
-  }
-
-  get imagem() {
-    return this.form.controls['imagem'];
-  }
-
-  get descricao() {
-    return this.form.controls['descricao'];
+  initializeForm(produto?: Produto) {
+    this.form = this.fb.group({
+      nome: [produto?.nome ?? '', Validators.compose([
+        Validators.required,
+        Validators.pattern(/(.|\s)*\S(.|\s)*/)
+      ])],
+      quantidade: [produto?.quantidade ?? '', Validators.compose([
+        Validators.required,
+        Validators.maxLength(2)
+      ])],
+      validade: [produto?.validade ?? new Date(), Validators.compose([
+        Validators.required
+      ])],
+      preco: [produto?.preco ?? '', Validators.compose([
+        Validators.required
+      ])],
+      imagem: [produto?.imagem ?? '', Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')],
+      descricao: [produto?.descricao ?? '', Validators.maxLength(300)]
+    })
   }
   
   cancel(): void {
@@ -96,35 +60,18 @@ export class CadastrarComponent implements OnInit {
 	}
 
   onSubmit() {
-    if(this.isEditar) {
-      this.produtoService.updateProduct(this.produto).subscribe((res: any) => {
-        console.log("RESPOSTA edicao produto: ", res);
+    if(this.productID) {
+      this.produtoService.updateProduct(this.form.value, this.productID).subscribe((res: any) => {
         this._snackBar.open("Registro editado com sucesso!", "x", {duration: 3000, panelClass: 'success'});
         this.form.reset();
         this.router.navigate(['/consultar']);
       });
     } else {
-      const newProduct = this.constructorNewProduct();
-      this.produtoService.newProduct(newProduct).subscribe((res: any) => {
-        console.log("RESPOSTA novo produto: ", res);
+      this.produtoService.newProduct(this.form.value).subscribe((res: any) => {
         this._snackBar.open("Registro criado com sucesso!", "x", {duration: 3000, panelClass: 'success'});
-        this.router.navigate(['/consultar']);
         this.form.reset();
+        this.router.navigate(['/consultar']);
       });
     }
-  }
-
-  constructorNewProduct(): Produto {
-    const copy: Produto = {...this.produto};
-    
-    copy.nome = this.form.value.name as string;
-    copy.quantidade = Number(this.form.value.quantidade);
-    copy.validade = new Date(this.form.value.validade as string);
-    copy.preco = Number(this.form.value.preco);
-    copy.imagem = this.form.value.imagem! as string;
-    copy.descricao = this.form.value.descricao! as string;
-    copy.compras = [];
-
-    return copy;
   }
 }

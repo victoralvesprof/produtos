@@ -4,10 +4,10 @@ export interface Produto {
     quantidade: number;
     validade: Date;
     preco: number;
-    imagem: string;
-    descricao: string;
-    lancamento: Date;
-    compras: Array<Comprador>
+    imagem?: string;
+    descricao?: string;
+    lancamento?: Date;
+    compras?: Array<Comprador>
 }
 
 export interface Comprador {

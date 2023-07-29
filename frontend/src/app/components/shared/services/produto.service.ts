@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from "src/environments/environment";
 import { Produto } from '../interfaces/produto';
 
@@ -19,22 +19,23 @@ export class ProdutoService {
     //   .append('ETag', `W/"e26-lchCs6o6uvrNdfq6rONJlBa7gw4"`)
     //   .append('Access-Control-Allow-Origin', '*')
     //   .append('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS')
-    return this.http.get(this.baseUrlProduct + '/produtos');
+    return this.http.get(this.baseUrlProduct + '/produtos').pipe(tap((res: any) => console.log("get all: ", res)));
   }
 
   getOnlyProduct(id: string): Observable<any>{
-    return this.http.get(this.baseUrlProduct + `/produtos/${id}`);
+    return this.http.get(this.baseUrlProduct + `/produtos/${id}`).pipe(tap((res: any) => console.log("get 1: ", res)));
   }
 
   newProduct(newProduct: Produto): Observable<any> {
-    return this.http.post(this.baseUrlProduct + '/produtos', newProduct);
+    return this.http.post(this.baseUrlProduct + '/produtos', newProduct).pipe(tap((res: any) => console.log("save: ", res)));;
   }
 
-  updateProduct(editProduct: Produto): Observable<any>{
-    return this.http.put(this.baseUrlProduct + `/produtos/${editProduct._id}`, editProduct);
+  updateProduct(editProduct: Produto, id: string): Observable<any>{
+    console.log("body bff: ", editProduct)
+    return this.http.put(this.baseUrlProduct + `/produtos/${id}`, editProduct).pipe(tap((res: any) => console.log("update: ", res)));
   }
 
   removeProduct(id: string): Observable<any> {
-    return this.http.delete<Observable<any>>(this.baseUrlProduct + `/produtos/${id}`);
+    return this.http.delete<Observable<any>>(this.baseUrlProduct + `/produtos/${id}`).pipe(tap((res: any) => console.log("delete: ", res)));
   }
 }
