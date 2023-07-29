@@ -4,9 +4,9 @@ const produtos = [
     quantidade: {type: Number, required: true},
     validade: {type: Date, required: true},
     preco: {type: Number, required: true},
-    imagem: {type: String, required: true},
-    descricao: {type: String, required: true},
-    lancamento: {type: Date, required: true},
+    imagem: {type: String},
+    descricao: {type: String},
+    lancamento: {type: Date},
     compras: {type: [
         {
             nome: {type: String, required: true},

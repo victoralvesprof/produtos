@@ -31,10 +31,9 @@ class ProdutoController {
 
   static atualizarProduto = async (req, res) => {
     try {
-      const response = await api.put(`/produtos/${req.params.id}`, req.body);
-      res.send(response.data);
+      await api.put(`/produtos/${req.params.id}`, req.body).then((response) => res.send(response.data));
     } catch (err) {
-      console.error(err);
+      console.error('deu ruim', err);
     }
   }
 
