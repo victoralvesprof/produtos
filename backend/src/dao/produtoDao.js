@@ -30,8 +30,8 @@ class ProdutoDao {
             const produto = new produtos(req.body);
     
             await produto.save()
-            .then((savedContact) => {
-                console.log("retornou salvo: ", savedContact);
+            .then((savedProduct) => {
+                console.log("retornou salvo: ", savedProduct);
                 res.status(201).json({ msg: 'Produto atualizado com sucesso' });
             })
             .catch((error) => {
