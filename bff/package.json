@@ -1,5 +1,5 @@
 {
-  "name": "bff",
+  "name": "bff-produtos",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,11 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "1.5.1",
     "cors": "^2.8.5",
-    "express": "^4.18.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "3.0.1"
   }
 }

@@ -19,7 +19,7 @@ export class ProdutoService {
     //   .append('ETag', `W/"e26-lchCs6o6uvrNdfq6rONJlBa7gw4"`)
     //   .append('Access-Control-Allow-Origin', '*')
     //   .append('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS')
-    return this.http.get(this.baseUrlProduct + '/produtos').pipe(tap((res: any) => console.log("get all: ", res)));
+    return this.http.get(this.baseUrlProduct + '/produtos').pipe(tap((res: any) => console.table(res)));
   }
 
   getOnlyProduct(id: string): Observable<any>{
